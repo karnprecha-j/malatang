@@ -9,12 +9,77 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 <style>
-    .highlight-price {
-  color: #FFD700; /* สีทอง หรือสีเหลืองสว่าง ตัดกับพื้นหลังน้ำเงิน/แดง */
-  font-size: 2rem; /* ขนาดใหญ่กว่าปกติ */
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* ใส่เงาให้ตัวเลขลอยออกมา */
-}
+              .header-title {
+            text-align: center;
+            color: #d32f2f;
+            margin-bottom: 25px;
+        }
+
+        .header-title h2 { margin: 0; font-size: 28px; }
+        .header-title p { margin: 5px 0; color: #666; }
+
+        /* ส่วนแสดงราคาหลัก */
+        .price-display {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #fff5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border: 1px dashed #d32f2f;
+        }
+
+        .price-item { text-align: center; }
+        .price-item .label { font-size: 18px; color: #333; }
+        .price-item .amount { 
+            font-size: 48px; 
+            font-weight: 700; 
+            color: #d32f2f; 
+            display: block;
+        }
+        .price-item .unit { font-size: 20px; color: #666; }
+
+        /* ขั้นตอนการสั่ง */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .step-box {
+            background: #fdfdfd;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .step-num {
+            background: #d32f2f;
+            color: white;
+            width: 25px;
+            height: 25px;
+            display: inline-block;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .step-box p { margin: 0; font-size: 14px; color: #444; }
+
+        /* หมายเหตุเพิ่มเติม */
+        .extra-notes {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #ec0000;
+        }
+        .left-align{
+            text-align: left;
+        }
 </style>
 </head>
 <body>
@@ -101,12 +166,73 @@
     </div>
 </div>
 
+<div style="display:flex; gap:40px; padding-left:200px; background:#FFFFFF" >
+  
+  <div>
+    <img src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t39.30808-6/474977626_475711285589114_6559794827622795864_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=8DYP-j-dSVMQ7kNvwFi86La&_nc_oc=AdovspKy5QeauOV3xXrHPp0n4TO-rW_VkhbMl22pZckdG5pgkF9W1b3_usLFs6WgoGA&_nc_zt=23&_nc_ht=scontent.fbkk10-1.fna&_nc_gid=_Rin0Lqk7P2G7PZL6gf89A&_nc_ss=8&oh=00_Afwxl9OWXLsxJg2WpGTdHCDb7HaUwgqIah7qsvZykDT4OQ&oe=69C1DF31" 
+    style="max-width:900px; border-radius:60px;" height="600" >
+  </div>
 
-<div class="price-tag container text-center">
-  ราคาขีดละ <span class="highlight-price">35.-</span> บาท
+ <div class="col-md-4 container text-center">
+    <div class="header-title">
+        <h2>อัตราค่าบริการตักเอง</h2>
+        <p>เลือกตักได้ตามใจชอบ ไม่จำกัดรายการ</p>
+    </div>
+
+    <div class="price-display">
+        <div class="price-item">
+            <span class="label">ราคาเริ่มต้น</span>
+            <span class="amount">35<span class="unit">.-</span></span>
+            <span class="unit">ต่อขีด (100g)</span>
+        </div>
+        
+        <div style="font-size: 40px; color: #ddd;">|</div>
+
+        <div class="price-item">
+            <span class="label">ค่าน้ำจิ้มบุฟเฟต์</span>
+            <span class="amount">15<span class="unit">.-</span></span>
+            <span class="unit">ต่อ ถ้วย</span>
+        </div>
+    </div>
+
+    <div class="steps-container">
+        <div class="step-box">
+            <span class="step-num">1</span>
+            <p>หยิบกะละมังและตัวคีบ</p>
+        </div>
+        <div class="step-box">
+            <span class="step-num">2</span>
+            <p>เลือกวัตถุดิบตามชอบ</p>
+        </div>
+        <div class="step-box">
+            <span class="step-num">3</span>
+            <p>นำชั่งน้ำหนัก + จ่ายเงิน</p>
+        </div>
+        <div class="step-box">
+            <span class="step-num">4</span>
+            <p>ปรุงน้ำจิ้มตามชอบได้เลย</p>
+            <p class="left-align">1. น้ำจิ้มสุกี้ </p>
+            <p class="left-align">2. น้ำกระเทียมน้ำมันงา</p>
+            <p class="left-align">3. น้ำจิ้งซอสงา(แนะนำ⭐)</p>
+        </div>
+        <div class="step-box">
+            <span class="step-num">5</span>
+            <p>อาหารเสริฟพร้อมทาน</p>
+            <p style="font-size: 45px;">🥘</p>
+        </div>
+    </div>
+
+    <div class="extra-notes">
+        * น้ำซุปฟรี 
+    </div>
+</div>
+
 </div>
 
 <footer class="bg-info text-white p-4 mt-5 text-center">
     <p style="font-size: 25px;">  ชินชิน เกาเหลาหมาล่าทั่ง </p>
     <p> 📍ที่อยู่ 86 ถนนราชวิถ๊ ตำบลพระปฐมเจดีย์ อำเภอเมืองนครปฐม จังหวัดนครปฐม 73000</p>
 </footer>
+
+</body>
+</html>
